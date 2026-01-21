@@ -1,0 +1,166 @@
+.before-after-slider {
+  position: relative;
+  display: inline-block;
+  max-width: 90vw;
+  max-height: 90vh;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  cursor: ew-resize;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.before-image-container,
+.after-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.before-image-container {
+  /* Checkerboard background to visualize transparency */
+  background-color: #fff;
+  background-image:
+    linear-gradient(45deg, #e6e6e6 25%, transparent 25%),
+    linear-gradient(-45deg, #e6e6e6 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e6e6e6 75%),
+    linear-gradient(-45deg, transparent 75%, #e6e6e6 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.after-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* No transition for instant cursor sync */
+  will-change: clip-path;
+  /* Checkerboard background to visualize transparency */
+  background-color: #fff;
+  background-image:
+    linear-gradient(45deg, #e6e6e6 25%, transparent 25%),
+    linear-gradient(-45deg, #e6e6e6 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e6e6e6 75%),
+    linear-gradient(-45deg, transparent 75%, #e6e6e6 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+/* Ensure proper stacking so 'after' is on top */
+.before-image-container { z-index: 1; }
+.after-image-container { z-index: 2; }
+
+/* Prevent clicks from selecting images */
+.comparison-image { pointer-events: none; }
+
+.comparison-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.image-label {
+  position: absolute;
+  top: 16px;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  z-index: 3; /* above both images */
+}
+
+.before-label {
+  left: 16px;
+}
+
+.after-label {
+  right: 16px;
+}
+
+.slider-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.slider-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transform: translateX(-50%);
+}
+
+.slider-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  pointer-events: all;
+  cursor: ew-resize;
+  transition: transform 0.2s ease;
+}
+
+.slider-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.slider-button:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+.slider-button svg {
+  color: #333;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .before-after-slider {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+  .slider-button {
+    width: 56px;
+    height: 56px;
+  }
+
+  .image-label {
+    font-size: 12px;
+    padding: 6px 12px;
+    top: 12px;
+  }
+
+  .before-label {
+    left: 12px;
+  }
+
+  .after-label {
+    right: 12px;
+  }
+}
+

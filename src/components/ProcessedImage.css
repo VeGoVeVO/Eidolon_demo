@@ -1,0 +1,164 @@
+.processed-image-container {
+  width: 100%;
+  max-width: 600px;
+}
+
+.processed-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.result-header {
+  text-align: center;
+}
+
+.result-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #171717;
+  dark: #fafafa;
+  margin: 0 0 8px 0;
+}
+
+.result-header p {
+  font-size: 16px;
+  color: #737373;
+  dark: #a3a3a3;
+  margin: 0;
+}
+
+.image-display {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  dark: 0 20px 60px rgba(0, 0, 0, 0.3);
+  background: white;
+  dark: #262626;
+  padding: 4px;
+}
+
+.result-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  animation: slideUp 0.6s ease-out;
+}
+
+.action-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: #171717;
+  dark: #fafafa;
+  color: white;
+  dark: #171717;
+}
+
+.btn-primary:hover {
+  background: #262626;
+  dark: #e5e5e5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary {
+  background: #f5f5f5;
+  dark: #404040;
+  color: #171717;
+  dark: #fafafa;
+  border: 1px solid #e5e5e5;
+  dark: #525252;
+}
+
+.btn-secondary:hover {
+  background: #e5e5e5;
+  dark: #525252;
+  transform: translateY(-2px);
+}
+
+.result-info {
+  background: #f5f5f5;
+  dark: #262626;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.result-info h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #171717;
+  dark: #fafafa;
+  margin: 0 0 12px 0;
+}
+
+.result-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.result-info li {
+  font-size: 13px;
+  color: #737373;
+  dark: #a3a3a3;
+  padding-left: 20px;
+  position: relative;
+}
+
+.result-info li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #16a34a;
+  dark: #86efac;
+  font-weight: bold;
+}
+
+@media (max-width: 640px) {
+  .processed-content {
+    gap: 24px;
+  }
+
+  .result-header h2 {
+    font-size: 24px;
+  }
+
+  .result-header p {
+    font-size: 14px;
+  }
+
+  .action-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+}
+

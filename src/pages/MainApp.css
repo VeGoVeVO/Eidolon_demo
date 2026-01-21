@@ -1,0 +1,156 @@
+.main-app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+  dark: linear-gradient(135deg, #171717 0%, #1a1a1a 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.5s ease-in-out;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 0.5rem;
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 769px) {
+  .main-content {
+    padding: 2rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.try-again-button,
+.reset-button,
+.delete-button,
+.continue-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.try-again-button {
+  background: #f59e0b;
+  color: white;
+}
+
+.try-again-button:hover {
+  background: #d97706;
+  transform: translateY(-1px);
+}
+
+.reset-button {
+  background: #6366f1;
+  color: white;
+}
+
+.reset-button:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+}
+
+.delete-button {
+  background: #dc2626;
+  color: white;
+}
+
+.delete-button:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.continue-button {
+  background: #10b981;
+  color: white;
+}
+
+.continue-button:hover {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .button-container {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .try-again-button,
+  .reset-button,
+  .delete-button,
+  .continue-button {
+    width: 100%;
+  }
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 3rem;
+  min-height: 300px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f4f6;
+  border-top: 4px solid #6366f1;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-text {
+  color: #6b7280;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
